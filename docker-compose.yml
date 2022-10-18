@@ -16,7 +16,7 @@ services:
     image: nginx:latest
     working_dir: /usr/share/nginx/html
     volumes:
-      # - ./server/nginx:/usr/share/nginx/html-static
+      - ./server/nginx:/usr/share/nginx/html-static
       - ./server/conf.d/default.conf:/etc/nginx/conf.d/default.conf
     ports:
       - 80:80
