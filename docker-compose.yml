@@ -3,7 +3,7 @@ version: '3.9'
 services:
   apache:
     container_name: apache
-    image: php:apache
+    build: .
     volumes:
       - ./server/apache:/var/www/html
     ports:
