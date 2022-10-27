@@ -6,7 +6,7 @@ FLUSH PRIVILEGES;
 USE app_db;
 
 DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS menu;
+DROP TABLE IF EXISTS catalogue;
 
 CREATE TABLE IF NOT EXISTS users
 (
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS menu
+CREATE TABLE IF NOT EXISTS catalogue
 (
     ID          INT(10) NOT NULL AUTO_INCREMENT,
     name        VARCHAR(32)  NOT NULL,
@@ -29,26 +29,11 @@ INSERT INTO users (name, password)
 VALUES ('admin', '{SHA}0DPiKuNIrrVmD8IUCuw1hQxNqZc=');
 
 
-INSERT INTO menu (name, description, price)
-VALUES ('ENGLISH BREAKFAST', 'Very tasty', 10);
+INSERT INTO catalogue (name, description, price)
+VALUES ('Dvigatel', 'Ochen bystryj dvizhok', 100000);
 
-INSERT INTO menu (name, description, price)
-VALUES ('Black Americano', 'Served as a 12oz drink All our Barista prepared drinks are also available decaffeinated',
-        3);
+INSERT INTO catalogue (name, description, price)
+VALUES ('Cep GRM', 'Dvizhok bez etogo ne poedet', 30000);
 
-INSERT INTO menu (name, description, price)
-VALUES ('Cappuccino', 'Served as a 12oz drink All our Barista prepared drinks are also available decaffeinated', 3);
-
-INSERT INTO menu (name, description, price)
-VALUES ('Latte', 'Served as a 12oz drink All our Barista prepared drinks are also available decaffeinated', 3);
-
-INSERT INTO menu (name, description, price)
-VALUES ('HOMEMADE SAUSAGE ROLL',
-        'Honey roasted sausage meat mixed with caramelised onion chutney and wholegrain mustard wrapped in a flaky puff pastr',
-        9);
-
-INSERT INTO menu (name, description, price)
-VALUES ('THE CLUB SANDWICH', 'Chicken Breast, Crispy Bacon, Lettuce, Tomato & Mayonnaise', 7);
-
-INSERT INTO menu (name, description, price)
-VALUES ('THE PLOUGHMAN SANDWICH', 'Cheddar Cheese, Honey Roasted Ham & Caramelised Onion Chutney', 7);
+INSERT INTO catalogue (name, description, price)
+VALUES ('Shiny', 'Nu eto voobshche baza kak by', 15000);

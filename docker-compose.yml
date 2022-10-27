@@ -6,6 +6,7 @@ services:
     build: .
     volumes:
       - ./server/apache:/var/www/html
+      - ./server/apache-conf/000-default.conf:/etc/apache2/sites-available/000-default.conf
     ports:
       - 8080:80
     links:

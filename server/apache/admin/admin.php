@@ -8,22 +8,7 @@
     <body>
         <h1>List of users</h1>
         <?php
-            const
-            host = 'db',
-            users = 'users',
-            name = 'name',
-            dbUser = 'mqsql',
-            password = '123456',
-            db = 'app_db',
-            menu = 'menu',
-            id = 'ID',
-            description = 'description',
-            price = 'price';
-    
-            function openMysqli(): mysqli { return new mysqli(
-                host, dbUser, password, db
-            ); }
-            
+            require_once 'helper.php';
             $mysqli = openMysqli();
             $users = $mysqli->query('select * from ' . users);
         ?>
@@ -35,7 +20,7 @@
                 display: flex;
                 flex-direction: row;
             ">
-                <span>{$user[id]}</span><span>{$user[name]}</span><span>{$user[password]}</span>
+                <span>{$user[id]}</span><span>{$user[name]}</span><span>{$user['password']}</span>
             </div>
         A; } ?></div>
         <?php $mysqli->close(); ?>
