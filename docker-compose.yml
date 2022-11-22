@@ -4,6 +4,9 @@ services:
   apache:
     container_name: apache
     build: .
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     volumes:
       - ./server/apache:/var/www/html
       - ./server/apache-conf/000-default.conf:/etc/apache2/sites-available/000-default.conf
@@ -11,6 +14,7 @@ services:
       - 8080:80
     links:
       - db
+      - redis
 
   nginx:
     container_name: nginx-base
@@ -33,6 +37,20 @@ services:
       - 3306:3306
     volumes:
       - ./db:/docker-entrypoint-initdb.d
+
+  redisadmin:
+    image: erikdubbelboer/phpredisadmin
+    environment:
+      - REDIS_1_HOST=redis
+    ports:
+      - 16379:80
+
+  redis:
+    image: redis:latest
+    volumes:
+      - "./data:/data"
+    ports:
+      - 6379:6379
 
   adminer_mqsql:
     image: adminer
